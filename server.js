@@ -4,8 +4,8 @@ const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
-
 const url = 'mongodb://localhost:27017';
+// const client = new MongoClient(url);
 const dbName = 'yashFormDb';
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname,'public')));
@@ -31,8 +31,8 @@ app.use((err, req, res, next) => {
 
 app.post('/submit', async(req,res)=> {
 
+    const client = new MongoClient(url);
     try{
-        const client = new MongoClient(url);
         await client.connect();
         const db = client.db(dbName);
         const collection = db.collection('formData');

@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const { connectdb, insertData } = require('./data');
+const { connectdb, insertData } = require('./data.js');
 
 const app = express();
 const port = 3000;
